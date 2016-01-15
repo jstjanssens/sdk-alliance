@@ -1,5 +1,5 @@
 {
-  "name": "paynl/sdk_alliance",
+  "name": "paynl/sdk-alliance",
   "description": "SDK specifically for alliances to manage sub merchants",
   "minimum-stability": "stable",
   "license": "proprietary",
@@ -10,7 +10,7 @@
     }
   ],
   "require": {
-    "paynl/sdk": "v1.1.4"
+    "paynl/sdk": "v1.1.5"
   },
   "autoload":{
     "psr-4": {
