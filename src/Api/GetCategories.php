@@ -20,7 +20,7 @@ class GetCategories extends Api
     {
         $output = Helper::objectToArray($result);
 
-        if(!is_array($output)){
+        if (!is_array($output)) {
             throw new ApiError($output);
         }
         return $output;

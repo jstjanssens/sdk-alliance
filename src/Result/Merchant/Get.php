@@ -13,17 +13,21 @@ class Get extends Merchant
 {
     public function getBalance()
     {
-        return $this->data['balance']/100;
+        return $this->data['balance'] / 100;
     }
-    public function getDocuments(){
+
+    public function getDocuments()
+    {
         return $this->data['documents'];
     }
-    public function getMissingDocuments(){
+
+    public function getMissingDocuments()
+    {
         $result = array();
 
-        foreach($this->data['documents'] as $document){
+        foreach ($this->data['documents'] as $document) {
             // status 2 = wordt gecontroleerd, 3 = goed
-            if(!in_array($document['status_id'], array(2,3))){
+            if (!in_array($document['status_id'], array(2, 3))) {
                 array_push($result, $document);
             }
         }
@@ -31,7 +35,8 @@ class Get extends Merchant
         return $result;
     }
 
-    public function getAccounts(){
+    public function getAccounts()
+    {
         return $this->data['accounts'];
     }
 

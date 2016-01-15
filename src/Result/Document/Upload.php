@@ -7,7 +7,8 @@ use Paynl\Result\Result;
 
 class Upload extends Result
 {
-    public function success(){
+    public function success()
+    {
         return (bool)$this->data['result'];
     }
 }

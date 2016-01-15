@@ -100,7 +100,7 @@ class Merchant
             $api->setEmail($primaryAccount['email']);
         }
         if (isset($primaryAccount['firstname'])) {
-            $api->setFirstName($primaryAccount);
+            $api->setFirstName($primaryAccount['firstname']);
         }
         if (isset($primaryAccount['lastname'])) {
             $api->setLastName($primaryAccount['lastname']);
@@ -143,7 +143,7 @@ class Merchant
     public static function get($options)
     {
         $api = new Api\GetMerchant();
-        if(isset($options['merchantId'])){
+        if (isset($options['merchantId'])) {
             $api->setMerchantId($options['merchantId']);
         }
 
@@ -152,10 +152,11 @@ class Merchant
         return new Result\Merchant\Get($result);
     }
 
-    public static function getList($options = array()){
+    public static function getList($options = array())
+    {
         $api = new Api\GetMerchants();
 
-        if(isset($options['state'])){
+        if (isset($options['state'])) {
             $api->setState($options['state']);
         }
 

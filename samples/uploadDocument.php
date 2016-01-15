@@ -9,6 +9,6 @@ try {
     ));
 
     var_dump($result->success());
-} catch(Exception $e){
-    echo "Error occurred: ". $e->getMessage();
+} catch (Exception $e) {
+    echo "Error occurred: " . $e->getMessage();
 }

@@ -6,6 +6,9 @@ namespace Paynl\Alliance\Api;
 use Paynl\Error\Error;
 use Paynl\Error\Required;
 
+use Paynl\Error\Api as ApiError;
+use Paynl\Helper;
+
 class AddMerchant extends Api
 {
     /*
@@ -194,7 +197,7 @@ class AddMerchant extends Api
      */
     public function setCountryCode($countryCode)
     {
-        if(strlen($countryCode) != 2){
+        if (strlen($countryCode) != 2) {
             throw new Error('countryCode should be 2 characters long');
         }
 
@@ -230,7 +233,7 @@ class AddMerchant extends Api
      */
     public function setInvoiceInterval($invoiceInterval)
     {
-        if(!in_array($invoiceInterval, array('day', 'week', 'month'))){
+        if (!in_array($invoiceInterval, array('day', 'week', 'month'))) {
             throw new Error("invoiceInterval is invalid. possible values: day, week or month");
         }
 
@@ -274,7 +277,7 @@ class AddMerchant extends Api
      */
     public function setGender($gender)
     {
-        if(!in_array($gender, array('male', 'female'))){
+        if (!in_array($gender, array('male', 'female'))) {
 
         }
         $this->_gender = $gender;
@@ -337,8 +340,9 @@ class AddMerchant extends Api
      * @param bool $ubo
      * @throws Error
      */
-    public function addSignee($email, $firstname, $lastname, $authorised_to_sign, $ubo){
-        if(!in_array($authorised_to_sign, array(0,1,2))){
+    public function addSignee($email, $firstname, $lastname, $authorised_to_sign, $ubo)
+    {
+        if (!in_array($authorised_to_sign, array(0, 1, 2))) {
             throw new Error('authorised_to_sign can be 0, 1 or 2');
         }
         $signee = array(
@@ -463,6 +467,12 @@ class AddMerchant extends Api
     protected function processResult($result)
     {
         $output = Helper::objectToArray($result);
+        if ($result == '') {
+            throw new ApiError('Empty result');
+        }
+        if (!is_array($output)) {
+            throw new ApiError($output);
+        }
 
         // errors are returned different in this api
         if ($output['success'] != 1) {

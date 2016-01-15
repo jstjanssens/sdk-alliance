@@ -16,9 +16,10 @@ class GetList extends Result
     /**
      * @return Merchant[]
      */
-    public function getMerchants(){
+    public function getMerchants()
+    {
         $arrResult = array();
-        foreach($this->data as $arrMerchant){
+        foreach ($this->data as $arrMerchant) {
             $merchant = new Merchant($arrMerchant);
             array_push($arrResult, $merchant);
         }

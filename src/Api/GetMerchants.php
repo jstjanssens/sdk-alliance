@@ -25,7 +25,7 @@ class GetMerchants extends Api
      */
     public function setState($state)
     {
-        if(!in_array($state, array('new', 'accepted', 'deleted'))){
+        if (!in_array($state, array('new', 'accepted', 'deleted'))) {
             throw new Error\Error("State can only be 'new', 'accepted' or 'deleted'");
         }
         $this->_state = $state;
@@ -34,7 +34,7 @@ class GetMerchants extends Api
 
     protected function getData()
     {
-        if(isset($this->_state)){
+        if (isset($this->_state)) {
             $this->data['state'] = $this->_state;
         }
 

@@ -46,7 +46,9 @@ class Service
 
         return new Result\Service\Add($result);
     }
-    public static function getCategories($options = array()){
+
+    public static function getCategories($options = array())
+    {
         $api = new Api\GetCategories();
         $result = $api->doRequest();
 

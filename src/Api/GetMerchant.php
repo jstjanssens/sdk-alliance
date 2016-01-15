@@ -29,7 +29,7 @@ class GetMerchant extends Api
 
     protected function getData()
     {
-        if(!isset($this->_merchantId)){
+        if (!isset($this->_merchantId)) {
             throw new Error\Required('merchantId');
         }
 
@@ -42,7 +42,7 @@ class GetMerchant extends Api
     {
         $output = Helper::objectToArray($result);
 
-        if(isset($output['status']) && $output['status'] == 'FALSE'){
+        if (isset($output['status']) && $output['status'] == 'FALSE') {
             throw new Error\Api($output['error']);
         }
 
