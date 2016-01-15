@@ -1,0 +1,20 @@
+{
+  "name": "paynl/sdk_alliance",
+  "description": "SDK specifically for alliances to manage sub merchants",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Andy Pieters",
+      "email": "andy@pay.nl"
+    }
+  ],
+  "require": {
+    "paynl/sdk": "v1.1.4"
+  },
+  "autoload":{
+    "psr-4": {
+      "Paynl\\Alliance\\": "src/"
+    }
+  }
+}
